@@ -14,6 +14,8 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 30px;
     text-align: center;
+    max-width: 700px; /* Set a maximum width for larger screens */
+    margin: 0 auto; /* Center horizontally on all screens */
 }
 
 h2 {
@@ -44,7 +46,7 @@ button:hover {
 }
 
 #temp-div p {
-    font-size: 72px;
+    font-size: calc(1rem + 2vw); /* Adjust font size based on viewport width */
     color: #333;
     margin-top: -10px;
 }
@@ -60,13 +62,20 @@ button:hover {
     height: 200px;
     margin: 0 auto 10px; 
     margin-bottom: 0;
-    display: none
+    display: none;
 }
 
-#hourly-forecast {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
+/* Responsive hourly forecast */
+@media screen and (max-width: 768px) {
+    #hourly-forecast {
+        flex-wrap: wrap; /* Wrap hourly items onto multiple lines on small screens */
+        justify-content: center; /* Center items horizontally on small screens */
+    }
+
+    .hourly-item {
+        width: 33%; /* Adjust width for smaller screens */
+        margin-bottom: 10px; /* Add some spacing between items on small screens */
+    }
 }
 
 .hourly-item {
